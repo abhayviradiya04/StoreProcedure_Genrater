@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-FASTAPI_URL = "http://localhost:8000"  # Replace with your FastAPI server URL
+FASTAPI_URL = "http://localhost:5000"  # Replace with your FastAPI server URL
 
 def main():
     st.title("SQL Server CRUD Stored Procedure Generator")
