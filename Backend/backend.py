@@ -54,5 +54,4 @@ def get_columns(server_name: str, database_name: str, table_name: str):
     return {"columns": columns}
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))  # Use Render's PORT env variable
-    uvicorn.run(app, port=port)
+    app.run(debug=False)
