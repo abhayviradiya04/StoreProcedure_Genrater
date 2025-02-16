@@ -16,6 +16,10 @@ def connect_to_sql_server(server_name):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/")
+def home():
+    return {"message": "Backend is running!"}
+
 @app.get("/databases")
 def get_databases(server_name: str):
     conn = connect_to_sql_server(server_name)
@@ -51,4 +55,4 @@ def get_columns(server_name: str, database_name: str, table_name: str):
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))  # Use Render's PORT env variable
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, port=port)
