@@ -1,3 +1,5 @@
+import os
+import uvicorn
 from fastapi import FastAPI, HTTPException
 import pyodbc
 
@@ -46,3 +48,7 @@ def get_columns(server_name: str, database_name: str, table_name: str):
     columns = [{"name": row.COLUMN_NAME, "type": row.DATA_TYPE, "length": row.CHARACTER_MAXIMUM_LENGTH} for row in cursor.fetchall()]
     conn.close()
     return {"columns": columns}
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))  # Use Render's PORT env variable
+    uvicorn.run(app, host="0.0.0.0", port=port)
