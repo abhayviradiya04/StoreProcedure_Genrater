@@ -1,3 +1,5 @@
-pyodbc
 tabulate
 streamlit
+fastapi
+uvicorn
+pyodbc
